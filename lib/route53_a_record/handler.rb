@@ -27,7 +27,7 @@ module Route53ARecord
     end
 
     def aws_client
-      Aws::Route53::Client.new(
+      ::Aws::Route53::Client.new(
           region: @region,
           access_key_id: @access_key_id,
           secret_access_key: @secret_access_key
