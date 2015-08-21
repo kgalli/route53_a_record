@@ -1,4 +1,4 @@
-require 'aws-sdk'
+require 'aws-sdk-v1'
 
 module Route53ARecord
   class Handler
@@ -27,11 +27,10 @@ module Route53ARecord
     end
 
     def aws_client
-      ::Aws::Route53::Client.new(
-          region: @region,
+      AWS::Route53.new(
           access_key_id: @access_key_id,
           secret_access_key: @secret_access_key
-      )
+      ).client
     end
 
     def a_record_change_hash(action, resource_a_record)

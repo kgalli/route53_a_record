@@ -40,9 +40,8 @@ describe Route53ARecord::Handler do
   describe '#aws_client' do
 
     it 'assigns the region and aws credentials' do
-      rh.send(:aws_client).config[:region].must_equal 'my_region'
-      rh.send(:aws_client).config[:access_key_id].must_equal 'my_access_key_id'
-      rh.send(:aws_client).config[:secret_access_key].must_equal 'my_secret_access_key'
+      rh.send(:aws_client).config.credentials[:access_key_id].must_equal 'my_access_key_id'
+      rh.send(:aws_client).config.credentials[:secret_access_key].must_equal 'my_secret_access_key'
     end
   end
 
