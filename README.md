@@ -26,7 +26,6 @@ Or install it yourself as:
 require 'route53_a_record'
 
 # aws credentials
-aws_region = 'eu-central1'
 aws_access_key_id = 'AKIAIOSFODNN7EXAMPLE'
 aws_secret_access_key = 'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
 
@@ -44,7 +43,7 @@ record = Route53ARecord::Record.new(aws_hosted_zone, aws_hosted_zone_domain, aws
 # update if the given `Route53ARecord::Record`. It provides a
 # parameter overwrite which has to be used for updates. If it is
 # set to `false` updates will raise an exception. The default is `true`.
-handler = Route53ARecord::Handler.new(aws_region, aws_access_key_id, aws_secret_access_key, true)
+handler = Route53ARecord::Handler.new(aws_access_key_id, aws_secret_access_key, true)
 
 # to create the A record
 handler.create(record)

@@ -2,12 +2,11 @@ require 'test_helper'
 
 describe Route53ARecord::Handler do
 
-  let(:rh) { Route53ARecord::Handler.new('my_region', 'my_access_key_id', 'my_secret_access_key') }
-  let(:rh_overwrite_false) { Route53ARecord::Handler.new('my_region', 'my_access_key_id', 'my_secret_access_key', false) }
+  let(:rh) { Route53ARecord::Handler.new('my_access_key_id', 'my_secret_access_key') }
+  let(:rh_overwrite_false) { Route53ARecord::Handler.new('my_access_key_id', 'my_secret_access_key', false) }
   describe '#initialize' do
 
-    it 'assigns the aws region and credentials' do
-      rh.instance_variable_get(:@region).must_equal 'my_region'
+    it 'assigns the aws credentials' do
       rh.instance_variable_get(:@access_key_id).must_equal 'my_access_key_id'
       rh.instance_variable_get(:@secret_access_key).must_equal 'my_secret_access_key'
     end
@@ -39,7 +38,7 @@ describe Route53ARecord::Handler do
 
   describe '#aws_client' do
 
-    it 'assigns the region and aws credentials' do
+    it 'assigns the credentials' do
       rh.send(:aws_client).config.credentials[:access_key_id].must_equal 'my_access_key_id'
       rh.send(:aws_client).config.credentials[:secret_access_key].must_equal 'my_secret_access_key'
     end

@@ -4,8 +4,7 @@ module Route53ARecord
   class Handler
     attr_accessor :overwrite
 
-    def initialize(region, access_key_id, secret_access_key, overwrite = true)
-      @region = region
+    def initialize(access_key_id, secret_access_key, overwrite = true)
       @access_key_id = access_key_id
       @secret_access_key = secret_access_key
       @overwrite = overwrite
